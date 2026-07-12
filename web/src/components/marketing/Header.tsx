@@ -40,7 +40,7 @@ export function Header() {
 
                 <Link
                     href="/dashboard"
-                    className="shrink-0 whitespace-nowrap rounded-full bg-green-800 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-green-900 sm:px-5 sm:text-base"
+                    className="shrink-0 whitespace-nowrap rounded-full bg-green-900 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-green-900 sm:px-5 sm:text-base"
                 >
                     Start for  free
                 </Link>
