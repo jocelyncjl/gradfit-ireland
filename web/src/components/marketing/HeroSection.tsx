@@ -11,7 +11,7 @@ export function HeroSection() {
                     </span>
                 </div>
 
-                <h1 className="anton-regular max-w-7xl text-[2.75rem] font-black scale-y-80 uppercase text-slate-950 sm:text-6xl md:text-7xl lg:text-8xl">
+                <h1 className="anton-regular max-w-7xl text-[2.75rem] font-black scale-y-80 uppercase text-slate-950 sm:text-6xl md:text-7xl lg:text-9xl">
                     Know what to apply for.
                     <span className="mt-3 block text-[#a0be73]">Prove why you fit.</span>
                 </h1>
