@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  gradfit-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gradfit-api
+    restart: always
+    ports:
+      - "8025:8025"
+    environment:
+      - APP_ENV=production
+      - SERVER_PORT=8025
+      - DB_DRIVER=postgres
+      - DB_HOST=gradfit-db
+      - DB_PORT=5432
+      - DB_NAME=gradfit_ireland
+      - DB_USERNAME=gradfit_user
+      - DB_PASSWORD=gradfit_pass
+      - JWT_SECRET=${JWT_SECRET:-gradfit_secret_local}
+      - TZ=Asia/Shanghai
+    depends_on:
+      gradfit-db:
+        condition: service_healthy
+    networks:
+      - gradfit-network
+
+  gradfit-db:
+    image: postgres:14-alpine
+    container_name: gradfit-postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=gradfit_ireland
+      - POSTGRES_USER=gradfit_user
+      - POSTGRES_PASSWORD=gradfit_pass
+      - TZ=Asia/Shanghai
+    ports:
+      - "5432:5432"
+    volumes:
+      - gradfit_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U gradfit_user -d gradfit_ireland" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gradfit-network
+
+networks:
+  gradfit-network:
+    driver: bridge
+
+volumes:
+  gradfit_db_data:
