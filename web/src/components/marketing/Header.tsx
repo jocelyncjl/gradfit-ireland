@@ -35,14 +35,14 @@ export function Header() {
                     href = "/login"
                     className="hidden text-xs font-semibold text-slate-800 transition hover:text-slate-950 md:inline sm:text-base"
                 >
-                    Sign in
+                    Log in
                 </Link>
 
                 <Link
-                    href="/dashboard"
+                    href="/register"
                     className="shrink-0 whitespace-nowrap rounded-full bg-green-900 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-green-900 sm:px-5 sm:text-base"
                 >
-                    Start for  free
+                    Sign up
                 </Link>
             
             </div>

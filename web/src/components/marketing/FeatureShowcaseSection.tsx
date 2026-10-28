@@ -144,7 +144,7 @@ function EvidenceMatchingCard() {
                 <p className="text-lg font-medium text-slate-500">Gaps</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                     {gaps.map((gap) => (
-                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600">
+                        <span key={gap} className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600">
                             {gap}
                         </span>
                     ))}
